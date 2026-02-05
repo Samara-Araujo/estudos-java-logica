@@ -18,15 +18,22 @@ public class ControleEstoque {
         System.out.println("STATUS DO ITEM: " + nomeItem.toUpperCase()); 
         System.out.println("Quantidade: " + estoqueAtual + " unidades.");
 
-        // Lógica de decisão
-        if (estoqueAtual > estoqueMinimo) {
-            System.out.println("SITUACAO: Estoque OK.");
-        } else if (estoqueAtual == estoqueMinimo) {
-            System.out.println("SITUACAO: Atencao! Estoque no limite.");
-        } else {
-            System.out.println("SITUACAO: CRITICA! Realizar pedido de compra.");
-        }
+      // Códigos de Cores ANSI
+        String verde = "\u001B[32m";
+        String amarelo = "\u001B[33m";
+        String vermelho = "\u001B[31m";
+        String reset = "\u001B[0m"; // Volta para a cor padrão
 
-        input.close();
+        System.out.println("STATUS DO ITEM: " + nomeItem.toUpperCase());
+        System.out.println("Quantidade: " + estoqueAtual + " unidades.");
+
+        // Lógica de decisão com CORES
+        if (estoqueAtual > estoqueMinimo) {
+            System.out.println("SITUACAO: " + verde + "Estoque OK." + reset);
+        } else if (estoqueAtual == estoqueMinimo) {
+            System.out.println("SITUACAO: " + amarelo + "Atencao! Estoque no limite." + reset);
+        } else {
+            System.out.println("SITUACAO: " + vermelho + "CRITICA! Realizar pedido de compra." + reset);
+        }
     }
 }
